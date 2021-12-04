@@ -1,15 +1,29 @@
-//import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
 
-//include bootstrap npm library into the bundle
-import "bootstrap";
-
-//include your index.scss file into the bundle
 import "../styles/Index.scss";
 
-//import your own components
-import Home from "./component/home.jsx";
+import Counter from "./component/Counter.jsx";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let counter = 0;
+
+let renderCounter = () => {
+	// Calculates a module to obtain every digit
+	const fourth = Math.floor(counter / 1000) % 10;
+	const third = Math.floor(counter / 100) % 10;
+	const second = Math.floor(counter / 10) % 10;
+	const first = counter % 10;
+	counter++;
+	ReactDOM.render(
+		<Counter
+			firstDigit={first}
+			secondDigit={second}
+			thirdDigit={third}
+			fourthDigit={fourth}
+		/>,
+		document.querySelector("#app")
+	);
+};
+
+// SetInterval to render the component every one second
+setInterval(renderCounter, 1000);
