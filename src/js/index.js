@@ -1,11 +1,8 @@
-//Import React
 import React from "react";
 import ReactDOM from "react-dom";
 
-//Styles
 import "../styles/Index.scss";
 
-//Components
 import Counter from "./component/Counter.jsx";
 
 let counter = 0;
